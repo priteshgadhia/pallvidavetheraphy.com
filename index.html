@@ -228,14 +228,25 @@ footer{background:var(--text-dark);padding:36px 48px;display:flex;align-items:ce
 .cookie-btn{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.05em;color:var(--forest);background:var(--sage-light);border:none;padding:9px 20px;border-radius:2px;cursor:pointer;white-space:nowrap;transition:background .2s}
 .cookie-btn:hover{background:#fff}
 
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
-.reveal.in{opacity:1;transform:none}
+/* ── BURGER MENU ── */
+.nav-burger{display:none;flex-direction:column;justify-content:space-between;width:24px;height:17px;background:none;border:none;cursor:pointer;padding:0;z-index:101;flex-shrink:0}
+.nav-burger span{display:block;width:100%;height:2px;background:var(--text-on-dark);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+nav.scrolled .nav-burger span{background:var(--forest)}
+.nav-burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;z-index:99;background:var(--forest);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:var(--sans);font-size:1.6rem;font-weight:300;color:rgba(232,227,218,.7);text-decoration:none;padding:14px 32px;letter-spacing:.01em;transition:color .2s;cursor:pointer;width:100%;text-align:center}
+.mobile-menu a:hover,.mobile-menu a.nav-active{color:var(--text-on-dark)}
+.mobile-menu-divider{width:40px;height:1px;background:rgba(122,158,142,.3);margin:16px 0}
 
 /* ── RESPONSIVE ── */
 @media(max-width:920px){
   nav,nav.scrolled{padding:18px 24px}
   .nav-links{display:none}
+  .nav-cta{display:none!important}
+  .nav-burger{display:flex}
   .sec,.hero{padding-left:24px;padding-right:24px}
   .hero{padding-top:120px}
   .therapy-grid,.about-grid,.sup-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
@@ -250,7 +261,7 @@ footer{background:var(--text-dark);padding:36px 48px;display:flex;align-items:ce
 @media(max-width:560px){
   .fees-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
-  .hero-heading{font-size:2.7rem}
+  .hero-heading{font-size:2.4rem}
   .hero-art{display:none}
 }
 @media(prefers-reduced-motion:reduce){
@@ -273,7 +284,22 @@ footer{background:var(--text-dark);padding:36px 48px;display:flex;align-items:ce
     <li><a data-section="contact">Contact</a></li>
   </ul>
   <a class="nav-cta" data-section="contact">Get in touch</a>
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation">
+  <a data-section="home">Home</a>
+  <a data-section="therapy">Therapy</a>
+  <a data-section="about">About</a>
+  <a data-section="supervision">Supervision</a>
+  <a data-section="teaching">Teaching</a>
+  <a data-section="fees">Fees</a>
+  <div class="mobile-menu-divider"></div>
+  <a data-section="contact">Get in touch</a>
+</div>
 
 <!-- HOME -->
 <section class="hero page-section active" id="home">
@@ -578,6 +604,27 @@ footer{background:var(--text-dark);padding:36px 48px;display:flex;align-items:ce
 (function(){
   var nav = document.getElementById('nav');
 
+  // ── BURGER MENU ──
+  var burger = document.getElementById('nav-burger');
+  var mobileMenu = document.getElementById('mobile-menu');
+
+  function closeMobileMenu(){
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+  }
+
+  burger.addEventListener('click', function(){
+    var isOpen = mobileMenu.classList.contains('open');
+    if(isOpen){
+      closeMobileMenu();
+    } else {
+      burger.classList.add('open');
+      mobileMenu.classList.add('open');
+      burger.setAttribute('aria-expanded','true');
+    }
+  });
+
   // ── TAB NAVIGATION ──
   function showSection(id) {
     document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
@@ -587,7 +634,7 @@ footer{background:var(--text-dark);padding:36px 48px;display:flex;align-items:ce
     document.querySelectorAll('[data-section="'+id+'"]').forEach(function(a){ a.classList.add('nav-active'); });
     nav.classList.toggle('scrolled', id !== 'home');
     window.scrollTo(0,0);
-    // Trigger reveal animations for newly visible section
+    closeMobileMenu();
     if(target){
       target.querySelectorAll('.reveal').forEach(function(el,i){
         setTimeout(function(){ el.classList.add('in'); }, i * 80);
