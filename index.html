@@ -7,6 +7,8 @@
 <meta name="description" content="BACP-accredited Psychodynamic Therapist in Mill Hill, NW7. Individual counselling, clinical supervision and professional training in person and online.">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Pallvi Dave">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.svg">
 <meta name="theme-color" content="#24403A">
 <link rel="canonical" href="https://pallvidavetherapy.com">
 <meta property="og:type" content="website">
@@ -104,6 +106,8 @@ nav.scrolled .nav-cta:hover{border-color:var(--forest);background:rgba(36,64,58,
 .btn-primary:hover{background:var(--forest-mid);transform:translateX(2px)}
 .btn-linen{background:var(--linen);color:var(--forest)}
 .btn-linen:hover{background:#fff;transform:translateX(2px)}
+.btn-forest-mid{background:var(--forest-mid);color:var(--text-on-dark);border:1px solid rgba(232,227,218,.15)}
+.btn-forest-mid:hover{background:#4A7060;transform:translateX(2px)}
 .btn-ghost{background:transparent;color:var(--text-on-dark);border:1px solid rgba(232,227,218,.3)}
 .btn-ghost:hover{border-color:rgba(232,227,218,.7)}
 
@@ -124,7 +128,7 @@ nav.scrolled .nav-cta:hover{border-color:var(--forest);background:rgba(36,64,58,
 .ibi{flex:1;padding:30px 32px;border-right:1px solid rgba(255,255,255,.07)}
 .ibi:last-child{border-right:none}
 .ibi-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:8px}
-.ibi-val{font-family:var(--disp);font-size:1.35rem;font-weight:400;color:var(--text-on-dark);line-height:1.25}
+.ibi-val{font-family:var(--sans);font-size:1.2rem;font-weight:400;color:var(--text-on-dark);line-height:1.25}
 .ibi-sub{font-size:12px;color:var(--text-on-dark-2);margin-top:4px}
 
 /* ── ABOUT ── */
@@ -134,8 +138,6 @@ nav.scrolled .nav-cta:hover{border-color:var(--forest);background:rgba(36,64,58,
 .about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:72px;align-items:start}
 .portrait{aspect-ratio:3/4;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:3px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .portrait-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.portrait-badge{position:absolute;bottom:16px;right:16px;background:#fff;border-radius:4px;padding:8px 10px;box-shadow:0 2px 16px rgba(0,0,0,.18)}
-.portrait-badge-img{width:130px;height:auto;display:block}
 .creds{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
 .cred-tag{font-size:10px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--sage);background:rgba(122,158,142,.1);border:1px solid rgba(122,158,142,.18);padding:5px 12px;border-radius:2px}
 .about-body p{font-family:var(--sans);font-size:17px;font-weight:300;color:var(--text-on-dark-2);line-height:1.85;margin-bottom:19px}
@@ -164,7 +166,7 @@ nav.scrolled .nav-cta:hover{border-color:var(--forest);background:rgba(36,64,58,
 .teach-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px}
 .tc{background:var(--linen);padding:36px 30px}
 .tc-rule{width:28px;height:2px;background:var(--sage);margin-bottom:22px}
-.tc h3{font-family:var(--disp);font-size:1.2rem;font-weight:500;color:var(--text-dark);margin-bottom:12px}
+.tc h3{font-family:var(--sans);font-size:1.05rem;font-weight:500;color:var(--text-dark);margin-bottom:12px}
 .tc p{font-family:var(--sans);font-size:15px;font-weight:300;color:var(--text-body);line-height:1.72}
 .teach-cta{margin-top:40px}
 
@@ -319,7 +321,7 @@ nav.scrolled .nav-burger span{background:var(--forest)}
       <span class="hero-tag">Teaching &amp; Training</span>
     </div>
     <div class="hero-actions">
-      <a class="btn btn-linen" data-section="contact">Get in touch &rarr;</a>
+      <a class="btn btn-forest-mid" data-section="contact">Get in touch &rarr;</a>
       <a class="btn btn-ghost" data-section="therapy">Find out more</a>
     </div>
   </div>
@@ -360,9 +362,6 @@ nav.scrolled .nav-burger span{background:var(--forest)}
       <div class="reveal">
         <div class="portrait">
           <img src="pallvi-dave.jpg" alt="Pallvi Dave, Psychodynamic Therapist, Mill Hill London" class="portrait-photo" loading="lazy">
-          <div class="portrait-badge">
-            <img src="bacp-badge.png" alt="BACP Registered Member 376817 MBACP (Accred)" class="portrait-badge-img" loading="lazy">
-          </div>
         </div>
       </div>
       <div class="reveal">
