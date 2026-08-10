@@ -28,7 +28,7 @@
   "name": "Pallvi Dave Therapy",
   "description": "BACP-accredited Psychodynamic Therapist offering individual therapy, clinical supervision and professional development in Mill Hill, Northwest London.",
   "url": "https://pallvidavetherapy.com",
-  "email": "pallvidavetheraphy@gmail.com",
+  "email": "pallvidavetherapy@gmail.com",
   "image": "https://pallvidavetherapy.com/pallvi-dave.jpg",
   "priceRange": "££",
   "address": {"@type":"PostalAddress","addressLocality":"Mill Hill","addressRegion":"London","postalCode":"NW7","addressCountry":"GB"},
@@ -64,7 +64,7 @@
   --mw:1080px;
 }
 html{scroll-behavior:auto}
-body{font-family:var(--sans);background:var(--linen);color:var(--text-dark);font-size:17px;line-height:1.75;font-weight:300;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--linen);color:var(--text-dark);font-size:17px;line-height:1.75;font-weight:300;-webkit-font-smoothing:antialiased;overscroll-behavior:none}
 
 /* ── TAB PAGES ── */
 .page-section{display:none}
@@ -93,7 +93,6 @@ nav.scrolled .nav-cta:hover{border-color:var(--forest);background:rgba(36,64,58,
 .hero-inner{max-width:var(--mw);margin:0 auto;width:100%;position:relative;z-index:1}
 .hero-heading{font-family:var(--sans);font-size:clamp(2.8rem,5.5vw,5rem);font-weight:300;line-height:1.1;color:var(--text-on-dark);max-width:760px;margin-bottom:36px;letter-spacing:-.02em}
 .hero-heading em{font-style:normal;font-weight:300}
-.hero-sub{font-size:16px;font-weight:300;color:var(--text-on-dark-2);max-width:480px;line-height:1.8;margin-bottom:44px}
 .hero-tags{display:flex;flex-wrap:wrap;gap:0;margin-bottom:52px}
 .hero-tag{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-light);padding-right:20px;border-right:1px solid rgba(122,158,142,.28);margin-right:20px}
 .hero-tag:last-child{border-right:none;padding-right:0;margin-right:0}
@@ -103,19 +102,17 @@ nav.scrolled .nav-cta:hover{border-color:var(--forest);background:rgba(36,64,58,
 .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:.05em;text-decoration:none;border-radius:2px;transition:all .2s;cursor:pointer;border:none;white-space:nowrap}
 .btn-primary{background:var(--forest);color:var(--text-on-dark)}
 .btn-primary:hover{background:var(--forest-mid);transform:translateX(2px)}
-.btn-ghost{background:transparent;color:var(--text-on-dark);border:1px solid rgba(232,227,218,.22)}
-.btn-ghost:hover{border-color:rgba(232,227,218,.55)}
-.btn-forest{background:var(--forest);color:var(--text-on-dark);border:1px solid rgba(255,255,255,.12)}
-.btn-forest:hover{background:var(--forest-mid)}
-.btn-sage{background:var(--sage);color:#fff}
-.btn-sage:hover{background:var(--forest-mid);transform:translateX(2px)}
+.btn-linen{background:var(--linen);color:var(--forest)}
+.btn-linen:hover{background:#fff;transform:translateX(2px)}
+.btn-ghost{background:transparent;color:var(--text-on-dark);border:1px solid rgba(232,227,218,.3)}
+.btn-ghost:hover{border-color:rgba(232,227,218,.7)}
 
 /* ── SECTIONS ── */
 .sec{padding:100px 48px}
 .sec-inner{max-width:var(--mw);margin:0 auto}
 .eyebrow{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:22px}
-.sec-title{font-family:var(--disp);font-size:clamp(2.1rem,3.8vw,3rem);font-weight:400;line-height:1.18;color:var(--text-dark);margin-bottom:40px;letter-spacing:-.01em}
-.sec-title em{font-style:italic}
+.sec-title{font-family:var(--sans);font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:300;line-height:1.2;color:var(--text-dark);margin-bottom:40px;letter-spacing:-.02em}
+.sec-title em{font-style:normal;font-weight:300}
 .body-p{font-family:var(--sans);font-size:17px;font-weight:300;color:var(--text-body);line-height:1.82;margin-bottom:20px}
 .body-p:last-child{margin-bottom:0}
 
@@ -137,6 +134,8 @@ nav.scrolled .nav-cta:hover{border-color:var(--forest);background:rgba(36,64,58,
 .about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:72px;align-items:start}
 .portrait{aspect-ratio:3/4;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:3px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .portrait-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.portrait-badge{position:absolute;bottom:16px;right:16px;background:#fff;border-radius:4px;padding:8px 10px;box-shadow:0 2px 16px rgba(0,0,0,.18)}
+.portrait-badge-img{width:130px;height:auto;display:block}
 .creds{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
 .cred-tag{font-size:10px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--sage);background:rgba(122,158,142,.1);border:1px solid rgba(122,158,142,.18);padding:5px 12px;border-radius:2px}
 .about-body p{font-family:var(--sans);font-size:17px;font-weight:300;color:var(--text-on-dark-2);line-height:1.85;margin-bottom:19px}
@@ -313,15 +312,14 @@ nav.scrolled .nav-burger span{background:var(--forest)}
     <circle cx="370" cy="300" r="72" stroke="#AECBBF" stroke-width=".35" stroke-dasharray="3 6"/>
   </svg>
   <div class="hero-inner">
-    <h1 class="hero-heading">A space to pause,<br>reflect and be<br>truly heard.</h1>
-    <p class="hero-sub">Wherever you are in life, your experiences deserve care and understanding in a compassionate, confidential space.</p>
+    <h1 class="hero-heading">Wherever you are in life, your experiences deserve care and understanding &mdash; in a compassionate, confidential space.</h1>
     <div class="hero-tags">
       <span class="hero-tag">Individual Therapy</span>
       <span class="hero-tag">Clinical Supervision</span>
       <span class="hero-tag">Teaching &amp; Training</span>
     </div>
     <div class="hero-actions">
-      <a class="btn btn-sage" data-section="contact">Get in touch &rarr;</a>
+      <a class="btn btn-linen" data-section="contact">Get in touch &rarr;</a>
       <a class="btn btn-ghost" data-section="therapy">Find out more</a>
     </div>
   </div>
@@ -357,11 +355,14 @@ nav.scrolled .nav-burger span{background:var(--forest)}
 <section class="sec about-sec page-section" id="about">
   <div class="sec-inner">
     <p class="eyebrow reveal">Hello, I&rsquo;m Pallvi</p>
-    <h2 class="sec-title reveal">Thoughtful, experienced, <em>committed.</em></h2>
+    <h2 class="sec-title reveal">Thoughtful, experienced and committed.</h2>
     <div class="about-grid">
       <div class="reveal">
         <div class="portrait">
           <img src="pallvi-dave.jpg" alt="Pallvi Dave, Psychodynamic Therapist, Mill Hill London" class="portrait-photo" loading="lazy">
+          <div class="portrait-badge">
+            <img src="bacp-badge.png" alt="BACP Registered Member 376817 MBACP (Accred)" class="portrait-badge-img" loading="lazy">
+          </div>
         </div>
       </div>
       <div class="reveal">
@@ -377,14 +378,14 @@ nav.scrolled .nav-burger span{background:var(--forest)}
           <img src="bacp-badge.png" alt="BACP Registered Member 376817 MBACP (Accred) — Professional Standards Authority Accredited Register" class="bacp-badge-img" loading="lazy">
         </div>
         <div class="about-body">
-          <p>I am Pallvi Dave &mdash; a Psychodynamic Therapist, Clinical Supervisor and Tutor, committed to providing a warm, thoughtful and confidential space where you can explore whatever is bringing you to counselling.</p>
+          <p>Hello, I am Pallvi &mdash; a Psychodynamic Therapist, Clinical Supervisor and Tutor, committed to providing a warm, thoughtful and confidential space where you can explore whatever is bringing you to counselling.</p>
           <p>I am an accredited member of the British Association for Counselling and Psychotherapy (BACP), holding a Postgraduate Diploma in Psychodynamic Counselling (BACP-accredited) and a Diploma in Clinical Supervision. My work is underpinned by the BACP Ethical Framework, ensuring I practise safely, ethically and with integrity.</p>
           <p>Before training as a therapist, I spent many years in people management. That experience gave me a deep appreciation of the pressures modern life places on us, and of how much it matters to have a space to pause, reflect and be truly heard. It also shaped my belief in the resilience people carry, even through life&rsquo;s most challenging times.</p>
           <p>I believe every person has a unique story. Rather than offering advice or quick fixes, I work alongside you with curiosity, compassion and without judgement, helping you build a deeper understanding of yourself and your experiences.</p>
           <p>Alongside my private practice, I work as a Clinical Supervisor and Tutor, supporting qualified and trainee counsellors in their professional development &mdash; work that keeps me connected to current thinking in the profession and continually enriches my own clinical practice.</p>
         </div>
         <div class="about-cta">
-          <a class="btn btn-sage" data-section="contact">Arrange a consultation &rarr;</a>
+          <a class="btn btn-linen" data-section="contact">Arrange a consultation &rarr;</a>
         </div>
       </div>
     </div>
@@ -395,7 +396,7 @@ nav.scrolled .nav-burger span{background:var(--forest)}
 <section class="sec sup-sec page-section" id="supervision">
   <div class="sec-inner">
     <p class="eyebrow reveal">Clinical Supervision</p>
-    <h2 class="sec-title reveal">A space to <em>think deeply</em> about your practice.</h2>
+    <h2 class="sec-title reveal">A space to think deeply about your practice.</h2>
     <div class="sup-grid">
       <div class="reveal">
         <p class="body-p">I offer clinical supervision to qualified counsellors and counsellors in training, providing a reflective, collaborative and supportive space to think about your clinical work and professional development.</p>
@@ -431,7 +432,7 @@ nav.scrolled .nav-burger span{background:var(--forest)}
 <section class="sec teach-sec page-section" id="teaching">
   <div class="sec-inner">
     <p class="eyebrow reveal">Teaching &amp; Development</p>
-    <h2 class="sec-title reveal">Supporting the next generation <em>of practitioners.</em></h2>
+    <h2 class="sec-title reveal">Supporting the next generation of practitioners.</h2>
     <p class="body-p teach-lead reveal">Alongside my private practice, I work as a Tutor, supporting trainee counsellors in developing their clinical knowledge, reflective capacity and professional identity. My teaching draws on clinical experience as a psychodynamic counsellor and supervisor &mdash; bridging theory with the realities of therapeutic practice.</p>
     <div class="teach-cards reveal">
       <div class="tc">
@@ -451,7 +452,7 @@ nav.scrolled .nav-burger span{background:var(--forest)}
       </div>
     </div>
     <div class="teach-cta reveal">
-      <a class="btn btn-forest" data-section="contact">Enquire about workshops or training &rarr;</a>
+      <a class="btn btn-primary" data-section="contact">Enquire about workshops or training &rarr;</a>
     </div>
   </div>
 </section>
@@ -460,7 +461,7 @@ nav.scrolled .nav-burger span{background:var(--forest)}
 <section class="sec fees-sec page-section" id="fees">
   <div class="sec-inner">
     <p class="eyebrow reveal">Fees</p>
-    <h2 class="sec-title reveal">Transparent, <em>straightforward</em> pricing.</h2>
+    <h2 class="sec-title reveal">Transparent, straightforward pricing.</h2>
     <div class="fees-grid reveal">
       <div class="fee-card">
         <p class="fee-type">Initial Consultation</p>
@@ -497,7 +498,7 @@ nav.scrolled .nav-burger span{background:var(--forest)}
       </div>
     </div>
     <div class="fees-cta reveal">
-      <a class="btn btn-primary" data-section="contact">Get in touch &rarr;</a>
+      <a class="btn btn-linen" data-section="contact">Get in touch &rarr;</a>
     </div>
   </div>
 </section>
@@ -524,7 +525,7 @@ nav.scrolled .nav-burger span{background:var(--forest)}
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </div>
           <div class="cd-text">
-            <a href="mailto:pallvidavetheraphy@gmail.com">pallvidavetheraphy@gmail.com</a>
+            <a href="mailto:pallvidavetherapy@gmail.com">pallvidavetherapy@gmail.com</a>
           </div>
         </div>
         <div class="contact-detail">
@@ -539,7 +540,7 @@ nav.scrolled .nav-burger span{background:var(--forest)}
           <div class="bacp-note-inner">
             <div>
               <p>You can verify Pallvi&rsquo;s professional registration on the <strong>BACP Register</strong>, ensuring her practice meets the highest professional standards.</p>
-              <a href="https://www.bacp.co.uk/search/Therapists" target="_blank" rel="noopener noreferrer">View BACP Register &rarr;</a>
+              <a href="https://www.bacp.co.uk/therapists/376817/pallvi-dave/london-nw7?search=Pallvi%20Dave" target="_blank" rel="noopener noreferrer">View Pallvi&rsquo;s BACP Profile &rarr;</a>
             </div>
             <img src="bacp-badge.png" alt="BACP Registered Member 376817 MBACP (Accred)" class="bacp-note-badge" loading="lazy">
           </div>
@@ -616,25 +617,35 @@ nav.scrolled .nav-burger span{background:var(--forest)}
 
   burger.addEventListener('click', function(){
     var isOpen = mobileMenu.classList.contains('open');
-    if(isOpen){
-      closeMobileMenu();
-    } else {
-      burger.classList.add('open');
-      mobileMenu.classList.add('open');
-      burger.setAttribute('aria-expanded','true');
-    }
+    if(isOpen){ closeMobileMenu(); }
+    else { burger.classList.add('open'); mobileMenu.classList.add('open'); burger.setAttribute('aria-expanded','true'); }
   });
 
   // ── TAB NAVIGATION ──
   function showSection(id) {
-    document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
+    // Close mobile menu first
+    closeMobileMenu();
+    // Scroll to absolute top (cross-browser + iOS)
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    window.scrollTo({top:0, left:0, behavior:'instant'});
+    // Hide ALL sections
+    document.querySelectorAll('.page-section').forEach(function(s){
+      s.classList.remove('active');
+      s.style.display = 'none';
+    });
+    // Show only target
     var target = document.getElementById(id);
-    if(target){ target.classList.add('active'); }
+    if(target){
+      target.style.display = '';
+      target.classList.add('active');
+    }
+    // Update nav active state
     document.querySelectorAll('[data-section]').forEach(function(a){ a.classList.remove('nav-active'); });
     document.querySelectorAll('[data-section="'+id+'"]').forEach(function(a){ a.classList.add('nav-active'); });
+    // Nav colour: transparent on home, solid on other sections
     nav.classList.toggle('scrolled', id !== 'home');
-    window.scrollTo(0,0);
-    closeMobileMenu();
+    // Trigger reveal animations
     if(target){
       target.querySelectorAll('.reveal').forEach(function(el,i){
         setTimeout(function(){ el.classList.add('in'); }, i * 80);
