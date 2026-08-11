@@ -76,7 +76,7 @@ body{font-family:var(--sans);background:var(--linen);color:var(--text-dark);font
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,padding .35s,box-shadow .35s}
 nav.scrolled{background:var(--linen);padding:14px 48px;box-shadow:0 1px 0 rgba(26,42,37,.09)}
-.nav-logo{font-family:var(--sans);font-size:17px;font-weight:600;letter-spacing:.01em;color:var(--text-on-dark);text-decoration:none;transition:color .3s;cursor:pointer}
+.nav-logo{font-family:var(--sans);font-size:17px;font-weight:400;letter-spacing:.01em;color:var(--text-on-dark);text-decoration:none;transition:color .3s;cursor:pointer}
 nav.scrolled .nav-logo{color:var(--text-dark)}
 .nav-links{display:flex;gap:24px;list-style:none}
 .nav-links a{font-size:13px;font-weight:400;letter-spacing:.03em;color:rgba(232,227,218,.75);text-decoration:none;transition:color .2s;cursor:pointer}
@@ -90,15 +90,19 @@ nav.scrolled .nav-cta{display:inline-flex;align-items:center;font-family:var(--s
 nav.scrolled .nav-cta:hover{border-color:var(--forest);background:rgba(36,64,58,.05)}
 
 /* ── HERO ── */
-.hero{min-height:100vh;background:var(--forest);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:140px 48px 100px}
+.hero{min-height:100vh;background:var(--forest);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden;padding:140px 48px 100px}
 .hero-art{position:absolute;top:50%;right:-4%;transform:translateY(-50%);width:52%;max-width:620px;opacity:.055;pointer-events:none}
 .hero-inner{max-width:var(--mw);margin:0 auto;width:100%;position:relative;z-index:1}
-.hero-heading{font-family:var(--sans);font-size:clamp(2.8rem,5.5vw,5rem);font-weight:300;line-height:1.1;color:var(--text-on-dark);max-width:760px;margin-bottom:36px;letter-spacing:-.02em}
+.hero-heading{font-family:var(--sans);font-size:clamp(1.35rem,2.6vw,1.9rem);font-weight:300;line-height:1.45;color:var(--text-on-dark-2);max-width:600px;margin:0 auto 40px;letter-spacing:0}
 .hero-heading em{font-style:normal;font-weight:300}
 .hero-tags{display:flex;flex-wrap:wrap;gap:0;margin-bottom:52px}
 .hero-tag{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-light);padding-right:20px;border-right:1px solid rgba(122,158,142,.28);margin-right:20px}
 .hero-tag:last-child{border-right:none;padding-right:0;margin-right:0}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.hero-logo{display:flex;flex-direction:column;align-items:center;margin-bottom:34px}
+.hero-logo-name{font-family:var(--disp);font-size:clamp(3rem,6vw,4.8rem);font-weight:400;line-height:1;letter-spacing:.01em;color:var(--text-on-dark)}
+.hero-logo-rule{width:42px;height:1px;background:var(--sage);margin:17px 0}
+.hero-logo-strap{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--sage-light)}
 
 /* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:.05em;text-decoration:none;border-radius:2px;transition:all .2s;cursor:pointer;border:none;white-space:nowrap}
@@ -262,7 +266,7 @@ nav.scrolled .nav-burger span{background:var(--forest)}
 @media(max-width:560px){
   .fees-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
-  .hero-heading{font-size:2.4rem}
+  .hero-heading{font-size:1.35rem}
   .hero-art{display:none}
 }
 @media(prefers-reduced-motion:reduce){
@@ -314,12 +318,12 @@ nav.scrolled .nav-burger span{background:var(--forest)}
     <circle cx="370" cy="300" r="72" stroke="#AECBBF" stroke-width=".35" stroke-dasharray="3 6"/>
   </svg>
   <div class="hero-inner">
-    <h1 class="hero-heading">Wherever you are in life, your experiences deserve care and understanding &mdash; in a compassionate, confidential space.</h1>
-    <div class="hero-tags">
-      <span class="hero-tag">Individual Therapy</span>
-      <span class="hero-tag">Clinical Supervision</span>
-      <span class="hero-tag">Teaching &amp; Training</span>
+    <div class="hero-logo">
+      <span class="hero-logo-name">Pallvi Dave</span>
+      <span class="hero-logo-rule"></span>
+      <span class="hero-logo-strap">Psychodynamic &middot; Therapy</span>
     </div>
+    <h1 class="hero-heading">A calm, confidential space to reflect, make sense of your experiences, and find a way forward.</h1>
     <div class="hero-actions">
       <a class="btn btn-forest-mid" data-section="contact">Get in touch &rarr;</a>
       <a class="btn btn-ghost" data-section="therapy">Find out more</a>
