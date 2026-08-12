@@ -218,6 +218,11 @@ nav.scrolled .nav-cta:hover{border-color:var(--forest);background:rgba(36,64,58,
 .fg textarea{resize:vertical;min-height:110px}
 .form-disclaimer{font-family:var(--sans);font-size:12px;font-weight:300;color:var(--text-mid);line-height:1.65}
 .form-submit{align-self:flex-start}
+.form-success{padding:6px 0}
+.form-success-title{font-family:var(--disp);font-size:1.7rem;font-weight:400;color:var(--forest);margin-bottom:6px;line-height:1.2}
+.form-success-sub{font-family:var(--sans);font-size:15px;font-weight:300;color:var(--text-mid)}
+.form-error{font-family:var(--sans);font-size:14px;font-weight:300;color:#9b3b3b;line-height:1.6}
+.form-error a{color:#9b3b3b;text-decoration:underline}
 
 /* ── FOOTER ── */
 footer{background:var(--text-dark);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
@@ -339,7 +344,7 @@ nav.scrolled .nav-burger span{background:var(--forest)}
     <div class="therapy-grid">
       <div class="reveal">
         <blockquote class="pull-quote">Your experiences &mdash; and the meaning you make of them &mdash; are unique to you. There is no one-size-fits-all approach.</blockquote>
-        <p class="body-p">My therapeutic approach is psychodynamic, offering the opportunity to explore how past experiences and unconscious patterns may be shaping your thoughts, feelings and relationships today. While this forms the foundation of my work, I recognise that every person is different, and I tailor my approach to your individual needs and goals.</p>
+        <p class="body-p">My therapeutic training is psychodynamic, offering the opportunity to explore how past experiences and unconscious patterns may be shaping your thoughts, feelings and relationships today. While this forms the foundation of my work, I recognise that every person is different, and I tailor my approach to your individual needs and goals.</p>
       </div>
       <div class="reveal">
         <p class="body-p">People come to therapy for many different reasons. You may be experiencing stress, anxiety or low mood, struggling with relationship difficulties, navigating a significant life change, or finding that past experiences continue to affect your present.</p>
@@ -551,14 +556,15 @@ nav.scrolled .nav-burger span{background:var(--forest)}
       </div>
       <div class="reveal">
         <form class="form" id="contact-form" novalidate>
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
           <div class="form-row">
             <div class="fg">
               <label for="name">Your name</label>
-              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
             </div>
             <div class="fg">
               <label for="email">Email address</label>
-              <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required>
             </div>
           </div>
           <div class="fg">
@@ -579,6 +585,11 @@ nav.scrolled .nav-burger span{background:var(--forest)}
           <p class="form-disclaimer">All enquiries are treated with complete confidentiality.</p>
           <button type="submit" class="btn btn-primary form-submit">Send message &rarr;</button>
         </form>
+        <div id="form-success" class="form-success" style="display:none">
+          <p class="form-success-title">Thank you for your email.</p>
+          <p class="form-success-sub">I will be in touch shortly.</p>
+        </div>
+        <p id="form-error" class="form-error" style="display:none">Sorry, something went wrong sending your message. Please email <a href="mailto:pallvidavetherapy@gmail.com">pallvidavetherapy@gmail.com</a> directly.</p>
       </div>
     </div>
   </div>
@@ -671,13 +682,43 @@ nav.scrolled .nav-burger span{background:var(--forest)}
   // Form submit
   document.getElementById('contact-form').addEventListener('submit', function(e){
     e.preventDefault();
-    var name = this.querySelector('#name').value.trim();
-    var email = this.querySelector('#email').value.trim();
+    var form = this;
+    var name = form.querySelector('#name').value.trim();
+    var email = form.querySelector('#email').value.trim();
     if(!name||!email){ return; }
-    var btn = this.querySelector('.form-submit');
-    btn.textContent = 'Message sent \u2713';
-    btn.style.background = '#3A5D52';
+    var btn = form.querySelector('.form-submit');
+    var label = btn.textContent;
+    var errNote = document.getElementById('form-error');
+    if(errNote){ errNote.style.display = 'none'; }
+    btn.textContent = 'Sending\u2026';
     btn.disabled = true;
+    var payload = {
+      name: name,
+      email: email,
+      enquiry: form.querySelector('#enquiry').value,
+      message: form.querySelector('#message').value,
+      _honey: (form.querySelector('input[name="_honey"]') || {}).value || '',
+      _subject: 'New enquiry from pallvidavetherapy.com',
+      _template: 'table',
+      _captcha: 'false'
+    };
+    fetch('https://formsubmit.co/ajax/pallvidavetherapy@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r){ if(!r.ok){ throw new Error('Request failed'); } return r.json(); })
+    .then(function(){
+      form.reset();
+      form.style.display = 'none';
+      var ok = document.getElementById('form-success');
+      if(ok){ ok.style.display = 'block'; }
+    })
+    .catch(function(){
+      btn.textContent = label;
+      btn.disabled = false;
+      if(errNote){ errNote.style.display = 'block'; }
+    });
   });
 
   // Cookie banner
